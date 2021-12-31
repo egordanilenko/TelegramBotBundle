@@ -16,6 +16,8 @@ use BoShurik\TelegramBotBundle\Telegram\Command\CommandInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -23,7 +25,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class BoShurikTelegramBotExtension extends Extension
+class BoShurikTelegramBotExtension extends Extension  implements ExtensionInterface
 {
     /**
      * {@inheritDoc}
@@ -58,7 +60,7 @@ class BoShurikTelegramBotExtension extends Extension
     /**
      * {@inheritDoc}
      */
-    public function getAlias()
+    public function getAlias():string
     {
         return 'boshurik_telegram_bot';
     }
